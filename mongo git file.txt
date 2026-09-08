@@ -1,5 +1,4 @@
-PS C:\Users\pawan> mongosh "mongodb+srv://cluster0.l9n2heg.mongodb.net/" --apiVersion 1 --username 2024pceacrvinay304_db_user
-Enter password: *************
+
 Current Mongosh Log ID: 6a9fae0cc370bcd400302bc6
 Connecting to:          mongodb+srv://<credentials>@cluster0.l9n2heg.mongodb.net/?appName=mongosh+2.10.0
 Using MongoDB:          8.0.32 (API Version 1)
