@@ -1,0 +1,2197 @@
+Microsoft Windows [Version 10.0.26200.9168]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\ronak>   mongosh --version
+2.10.0
+
+C:\Users\ronak>mongosh "mongodb+srv://cluster0.uo9voiu.mongodb.net/" --apiVersion 1 --username ronaksharma184910_db_user
+Enter password: ***********
+Current Mongosh Log ID: 6aa0d74efd2b216d724738b9
+Connecting to:          mongodb+srv://<credentials>@cluster0.uo9voiu.mongodb.net/?appName=mongosh+2.10.0
+Using MongoDB:          8.0.32 (API Version 1)
+Using Mongosh:          2.10.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+Atlas atlas-8hk621-shard-0 [primary] test> use placementDB
+switched to db placementDB
+Atlas atlas-8hk621-shard-0 [primary] placementDB> db.students.insertMany([
+|     { studentId: 1, name: "Aman", branch: "CSE", cgpa: 8.5, skills: ["Java", "MongoDB"] },
+|     { studentId: 2, name: "Rahul", branch: "CSE", cgpa: 7.8, skills: ["Python", "SQL"] },
+|     { studentId: 3, name: "Priya", branch: "IT", cgpa: 9.1, skills: ["Python", "AI"] },
+|     { studentId: 4, name: "Neha", branch: "ECE", cgpa: 8.2, skills: ["C", "Embedded"] },
+|     { studentId: 5, name: "Rohit", branch: "CSE", cgpa: 7.4, skills: ["Java", "SQL"] },
+|     { studentId: 6, name: "Anjali", branch: "IT", cgpa: 8.8, skills: ["Python", "Data Science"] },
+|     { studentId: 7, name: "Karan", branch: "ME", cgpa: 7.0, skills: ["AutoCAD"] },
+|     { studentId: 8, name: "Sneha", branch: "CSE", cgpa: 9.5, skills: ["Java", "Spring Boot"] },
+|     { studentId: 9, name: "Vikas", branch: "ECE", cgpa: 7.6, skills: ["C", "IoT"] },
+|     { studentId: 10, name: "Pooja", branch: "IT", cgpa: 8.9, skills: ["JavaScript", "React"] },
+|     { studentId: 11, name: "Arjun", branch: "CSE", cgpa: 8.3, skills: ["Python", "Django"] },
+|     { studentId: 12, name: "Simran", branch: "ME", cgpa: 7.1, skills: ["SolidWorks"] },
+|     { studentId: 13, name: "Nikhil", branch: "ECE", cgpa: 8.7, skills: ["Python", "IoT"] },
+|     { studentId: 14, name: "Kavya", branch: "IT", cgpa: 9.0, skills: ["Java", "MongoDB"] },
+|     { studentId: 15, name: "Mohit", branch: "CSE", cgpa: 7.9, skills: ["C++", "DSA"] }
+| ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6aa0d7defd2b216d724738ba'),
+    '1': ObjectId('6aa0d7defd2b216d724738bb'),
+    '2': ObjectId('6aa0d7defd2b216d724738bc'),
+    '3': ObjectId('6aa0d7defd2b216d724738bd'),
+    '4': ObjectId('6aa0d7defd2b216d724738be'),
+    '5': ObjectId('6aa0d7defd2b216d724738bf'),
+    '6': ObjectId('6aa0d7defd2b216d724738c0'),
+    '7': ObjectId('6aa0d7defd2b216d724738c1'),
+    '8': ObjectId('6aa0d7defd2b216d724738c2'),
+    '9': ObjectId('6aa0d7defd2b216d724738c3'),
+    '10': ObjectId('6aa0d7defd2b216d724738c4'),
+    '11': ObjectId('6aa0d7defd2b216d724738c5'),
+    '12': ObjectId('6aa0d7defd2b216d724738c6'),
+    '13': ObjectId('6aa0d7defd2b216d724738c7'),
+    '14': ObjectId('6aa0d7defd2b216d724738c8')
+  }
+}
+Atlas atlas-8hk621-shard-0 [primary] placementDB> db.companies.insertMany([
+|     { companyId: 1, companyName: "TCS", location: "Pune", industry: "IT" },
+|     { companyId: 2, companyName: "Infosys", location: "Bangalore", industry: "IT" },
+|     { companyId: 3, companyName: "Wipro", location: "Hyderabad", industry: "IT" },
+|     { companyId: 4, companyName: "Accenture", location: "Mumbai", industry: "IT" },
+|     { companyId: 5, companyName: "Microsoft", location: "Bangalore", industry: "Technology" }
+| ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6aa0d7ebfd2b216d724738c9'),
+    '1': ObjectId('6aa0d7ebfd2b216d724738ca'),
+    '2': ObjectId('6aa0d7ebfd2b216d724738cb'),
+    '3': ObjectId('6aa0d7ebfd2b216d724738cc'),
+    '4': ObjectId('6aa0d7ebfd2b216d724738cd')
+  }
+}
+Atlas atlas-8hk621-shard-0 [primary] placementDB> db.jobs.insertMany([
+|     {
+|         jobId: 101,
+|         companyId: 1,
+|         jobTitle: "Software Developer",
+|         requiredBranch: "CSE",
+|         minimumCGPA: 7.5,
+|         salary: 600000
+|     },
+|     {
+|         jobId: 102,
+|         companyId: 2,
+|         jobTitle: "System Engineer",
+|         requiredBranch: "CSE",
+|         minimumCGPA: 7.0,
+|         salary: 550000
+|     },
+|     {
+|         jobId: 103,
+|         companyId: 3,
+|         jobTitle: "Python Developer",
+|         requiredBranch: "IT",
+|         minimumCGPA: 7.5,
+|         salary: 650000
+|     },
+|     {
+|         jobId: 104,
+|         companyId: 4,
+|         jobTitle: "Data Analyst",
+|         requiredBranch: "IT",
+|         minimumCGPA: 8.0,
+|         salary: 700000
+|     },
+|     {
+|         jobId: 105,
+|         companyId: 5,
+|         jobTitle: "Software Engineer",
+|         requiredBranch: "CSE",
+|         minimumCGPA: 8.5,
+|         salary: 1500000
+|     }
+| ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6aa0d7f9fd2b216d724738ce'),
+    '1': ObjectId('6aa0d7f9fd2b216d724738cf'),
+    '2': ObjectId('6aa0d7f9fd2b216d724738d0'),
+    '3': ObjectId('6aa0d7f9fd2b216d724738d1'),
+    '4': ObjectId('6aa0d7f9fd2b216d724738d2')
+  }
+}
+Atlas atlas-8hk621-shard-0 [primary] placementDB> use ecomDB
+switched to db ecomDB
+Atlas atlas-8hk621-shard-0 [primary] ecomDB> show collections
+products
+Atlas atlas-8hk621-shard-0 [primary] ecomDB> for (let i = 1; i <= 50; i++) {
+|
+|     db.products.insertOne({
+|         productId: i,
+|         productName: "Product " + i ,
+|         category:
+|             i % 5 === 0 ? "Laptop" :
+|             i % 5 === 1 ? "Mobile" :
+|             i % 5 === 2 ? "Headphones" :
+|             i % 5 === 3 ? "Keyboard" :
+|                           "Mouse",
+|
+|         brand:
+|             i % 3 === 0 ? "Dell" :
+|             i % 3 === 1 ? "Samsung" :
+|                           "HP",
+|
+|         price: 1000 + (i * 500),
+|
+|         stock: 10 + i,
+|
+|         rating: 3 + ((i % 3) * 0.5),
+|
+|         inStock: i % 4 !== 0,
+|
+|         tags: [
+|             "electronics",
+|             i % 2 === 0 ? "featured" : "new"
+|         ],
+|
+|         seller: {
+|             sellerId: 1000 + i,
+|             sellerName: "Seller " + i
+|         },
+|
+|         createdAt: new Date()
+|     });
+| }
+{
+  acknowledged: true,
+  insertedId: ObjectId('6aa0dd27fd2b216d72473904')
+}
+Atlas atlas-8hk621-shard-0 [primary] ecomDB> db.products.countDocument()
+TypeError: db.products.countDocument is not a function
+Atlas atlas-8hk621-shard-0 [primary] ecomDB> db.products.countDocuments()
+50
+Atlas atlas-8hk621-shard-0 [primary] ecomDB> db.products.find({
+|   inStock: true
+| })
+[
+  {
+    _id: ObjectId('6aa0dd21fd2b216d724738d3'),
+    productId: 1,
+    productName: 'Product 1',
+    category: 'Mobile',
+    brand: 'Samsung',
+    price: 1500,
+    stock: 11,
+    rating: 3.5,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1001, sellerName: 'Seller 1' },
+    createdAt: ISODate('2026-09-09T04:14:25.419Z')
+  },
+  {
+    _id: ObjectId('6aa0dd21fd2b216d724738d4'),
+    productId: 2,
+    productName: 'Product 2',
+    category: 'Headphones',
+    brand: 'HP',
+    price: 2000,
+    stock: 12,
+    rating: 4,
+    inStock: true,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1002, sellerName: 'Seller 2' },
+    createdAt: ISODate('2026-09-09T04:14:25.650Z')
+  },
+  {
+    _id: ObjectId('6aa0dd21fd2b216d724738d5'),
+    productId: 3,
+    productName: 'Product 3',
+    category: 'Keyboard',
+    brand: 'Dell',
+    price: 2500,
+    stock: 13,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1003, sellerName: 'Seller 3' },
+    createdAt: ISODate('2026-09-09T04:14:25.824Z')
+  },
+  {
+    _id: ObjectId('6aa0dd22fd2b216d724738d7'),
+    productId: 5,
+    productName: 'Product 5',
+    category: 'Laptop',
+    brand: 'HP',
+    price: 3500,
+    stock: 15,
+    rating: 4,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1005, sellerName: 'Seller 5' },
+    createdAt: ISODate('2026-09-09T04:14:26.029Z')
+  },
+  {
+    _id: ObjectId('6aa0dd22fd2b216d724738d8'),
+    productId: 6,
+    productName: 'Product 6',
+    category: 'Mobile',
+    brand: 'Dell',
+    price: 4000,
+    stock: 16,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1006, sellerName: 'Seller 6' },
+    createdAt: ISODate('2026-09-09T04:14:26.119Z')
+  },
+  {
+    _id: ObjectId('6aa0dd22fd2b216d724738d9'),
+    productId: 7,
+    productName: 'Product 7',
+    category: 'Headphones',
+    brand: 'Samsung',
+    price: 4500,
+    stock: 17,
+    rating: 3.5,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1007, sellerName: 'Seller 7' },
+    createdAt: ISODate('2026-09-09T04:14:26.196Z')
+  },
+  {
+    _id: ObjectId('6aa0dd22fd2b216d724738db'),
+    productId: 9,
+    productName: 'Product 9',
+    category: 'Mouse',
+    brand: 'Dell',
+    price: 5500,
+    stock: 19,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1009, sellerName: 'Seller 9' },
+    createdAt: ISODate('2026-09-09T04:14:26.620Z')
+  },
+  {
+    _id: ObjectId('6aa0dd22fd2b216d724738dc'),
+    productId: 10,
+    productName: 'Product 10',
+    category: 'Laptop',
+    brand: 'Samsung',
+    price: 6000,
+    stock: 20,
+    rating: 3.5,
+    inStock: true,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1010, sellerName: 'Seller 10' },
+    createdAt: ISODate('2026-09-09T04:14:26.740Z')
+  },
+  {
+    _id: ObjectId('6aa0dd22fd2b216d724738dd'),
+    productId: 11,
+    productName: 'Product 11',
+    category: 'Mobile',
+    brand: 'HP',
+    price: 6500,
+    stock: 21,
+    rating: 4,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1011, sellerName: 'Seller 11' },
+    createdAt: ISODate('2026-09-09T04:14:26.832Z')
+  },
+  {
+    _id: ObjectId('6aa0dd23fd2b216d724738df'),
+    productId: 13,
+    productName: 'Product 13',
+    category: 'Keyboard',
+    brand: 'Samsung',
+    price: 7500,
+    stock: 23,
+    rating: 3.5,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1013, sellerName: 'Seller 13' },
+    createdAt: ISODate('2026-09-09T04:14:27.096Z')
+  },
+  {
+    _id: ObjectId('6aa0dd23fd2b216d724738e0'),
+    productId: 14,
+    productName: 'Product 14',
+    category: 'Mouse',
+    brand: 'HP',
+    price: 8000,
+    stock: 24,
+    rating: 4,
+    inStock: true,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1014, sellerName: 'Seller 14' },
+    createdAt: ISODate('2026-09-09T04:14:27.203Z')
+  },
+  {
+    _id: ObjectId('6aa0dd23fd2b216d724738e1'),
+    productId: 15,
+    productName: 'Product 15',
+    category: 'Laptop',
+    brand: 'Dell',
+    price: 8500,
+    stock: 25,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1015, sellerName: 'Seller 15' },
+    createdAt: ISODate('2026-09-09T04:14:27.287Z')
+  },
+  {
+    _id: ObjectId('6aa0dd23fd2b216d724738e3'),
+    productId: 17,
+    productName: 'Product 17',
+    category: 'Headphones',
+    brand: 'HP',
+    price: 9500,
+    stock: 27,
+    rating: 4,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1017, sellerName: 'Seller 17' },
+    createdAt: ISODate('2026-09-09T04:14:27.557Z')
+  },
+  {
+    _id: ObjectId('6aa0dd23fd2b216d724738e4'),
+    productId: 18,
+    productName: 'Product 18',
+    category: 'Keyboard',
+    brand: 'Dell',
+    price: 10000,
+    stock: 28,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1018, sellerName: 'Seller 18' },
+    createdAt: ISODate('2026-09-09T04:14:27.700Z')
+  },
+  {
+    _id: ObjectId('6aa0dd23fd2b216d724738e5'),
+    productId: 19,
+    productName: 'Product 19',
+    category: 'Mouse',
+    brand: 'Samsung',
+    price: 10500,
+    stock: 29,
+    rating: 3.5,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1019, sellerName: 'Seller 19' },
+    createdAt: ISODate('2026-09-09T04:14:27.770Z')
+  },
+  {
+    _id: ObjectId('6aa0dd23fd2b216d724738e7'),
+    productId: 21,
+    productName: 'Product 21',
+    category: 'Mobile',
+    brand: 'Dell',
+    price: 11500,
+    stock: 31,
+    rating: 3,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1021, sellerName: 'Seller 21' },
+    createdAt: ISODate('2026-09-09T04:14:27.932Z')
+  },
+  {
+    _id: ObjectId('6aa0dd24fd2b216d724738e8'),
+    productId: 22,
+    productName: 'Product 22',
+    category: 'Headphones',
+    brand: 'Samsung',
+    price: 12000,
+    stock: 32,
+    rating: 3.5,
+    inStock: true,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1022, sellerName: 'Seller 22' },
+    createdAt: ISODate('2026-09-09T04:14:28.021Z')
+  },
+  {
+    _id: ObjectId('6aa0dd24fd2b216d724738e9'),
+    productId: 23,
+    productName: 'Product 23',
+    category: 'Keyboard',
+    brand: 'HP',
+    price: 12500,
+    stock: 33,
+    rating: 4,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1023, sellerName: 'Seller 23' },
+    createdAt: ISODate('2026-09-09T04:14:28.114Z')
+  },
+  {
+    _id: ObjectId('6aa0dd24fd2b216d724738eb'),
+    productId: 25,
+    productName: 'Product 25',
+    category: 'Laptop',
+    brand: 'Samsung',
+    price: 13500,
+    stock: 35,
+    rating: 3.5,
+    inStock: true,
+    tags: [ 'electronics', 'new' ],
+    seller: { sellerId: 1025, sellerName: 'Seller 25' },
+    createdAt: ISODate('2026-09-09T04:14:28.296Z')
+  },
+  {
+    _id: ObjectId('6aa0dd24fd2b216d724738ec'),
+    productId: 26,
+    productName: 'Product 26',
+    category: 'Mobile',
+    brand: 'HP',
+    price: 14000,
+    stock: 36,
+    rating: 4,
+    inStock: true,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1026, sellerName: 'Seller 26' },
+    createdAt: ISODate('2026-09-09T04:14:28.399Z')
+  }
+]
+Type "it" for more
+Atlas atlas-8hk621-shard-0 [primary] ecomDB> db.products.updateMany({ productId: 2 }, { $set: { price: 15000 } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-8hk621-shard-0 [primary] ecomDB> db.products.find({ productId: 2 })
+[
+  {
+    _id: ObjectId('6aa0dd21fd2b216d724738d4'),
+    productId: 2,
+    productName: 'Product 2',
+    category: 'Headphones',
+    brand: 'HP',
+    price: 15000,
+    stock: 12,
+    rating: 4,
+    inStock: true,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1002, sellerName: 'Seller 2' },
+    createdAt: ISODate('2026-09-09T04:14:25.650Z')
+  }
+]
+Atlas atlas-8hk621-shard-0 [primary] ecomDB> db.products.find({ productId: 4 })
+[
+  {
+    _id: ObjectId('6aa0dd21fd2b216d724738d6'),
+    productId: 4,
+    productName: 'Product 4',
+    category: 'Mouse',
+    brand: 'Samsung',
+    price: 3000,
+    stock: 14,
+    rating: 3.5,
+    inStock: false,
+    tags: [ 'electronics', 'featured' ],
+    seller: { sellerId: 1004, sellerName: 'Seller 4' },
+    createdAt: ISODate('2026-09-09T04:14:25.923Z')
+  }
+]
+Atlas atlas-8hk621-shard-0 [primary] ecomDB> db.products.updateOne(
+|   { productId: 5 },
+|   { $addToSet: { tags: "electronics2" } }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-8hk621-shard-0 [primary] ecomDB> db.products.updateOne(
+|   { productId: 5 },
+|   { $addToSet: { tags: "electronics2" } }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+Atlas atlas-8hk621-shard-0 [primary] ecomDB> db.products.find({ productId: 5 })
+[
+  {
+    _id: ObjectId('6aa0dd22fd2b216d724738d7'),
+    productId: 5,
+    productName: 'Product 5',
+    category: 'Laptop',
+    brand: 'HP',
+    price: 3500,
+    stock: 15,
+    rating: 4,
+    inStock: true,
+    tags: [ 'electronics', 'new', 'electronics2' ],
+    seller: { sellerId: 1005, sellerName: 'Seller 5' },
+    createdAt: ISODate('2026-09-09T04:14:26.029Z')
+  }
+]
+Atlas atlas-8hk621-shard-0 [primary] test> use aggregateDB
+switched to db aggregateDB
+Atlas atlas-8hk621-shard-0 [primary] aggregateDB> const categories = [
+|     "Electronics",
+|     "Mobiles",
+|     "Laptops",
+|     "Home Appliances",
+|     "Fashion",
+|     "Books",
+|     "Sports",
+|     "Beauty",
+|     "Grocery",
+|     "Furniture"
+| ];
+|
+| const subCategories = {
+|     "Electronics": ["Headphones", "Smartwatch", "Camera", "Speaker"],
+|     "Mobiles": ["Android", "iPhone", "Feature Phone"],
+|     "Laptops": ["Gaming", "Business", "Student"],
+|     "Home Appliances": ["Refrigerator", "Washing Machine", "Microwave"],
+|     "Fashion": ["Men", "Women", "Kids"],
+|     "Books": ["Programming", "Fiction", "Education"],
+|     "Sports": ["Cricket", "Football", "Fitness"],
+|     "Beauty": ["Skincare", "Haircare", "Makeup"],
+|     "Grocery": ["Snacks", "Beverages", "Staples"],
+|     "Furniture": ["Chair", "Table", "Sofa"]
+| };
+|
+| const brands = [
+|     "Samsung",
+|     "Apple",
+|     "Sony",
+|     "LG",
+|     "HP",
+|     "Dell",
+|     "Lenovo",
+|     "Nike",
+|     "Adidas",
+|     "Boat",
+|     "OnePlus",
+|     "AmazonBasics"
+| ];
+|
+| const cities = [
+|     "Chennai",
+|     "Coimbatore",
+|     "Bangalore",
+|     "Hyderabad",
+|     "Mumbai",
+|     "Delhi",
+|     "Pune",
+|     "Kochi",
+|     "Kolkata",
+|     "Ahmedabad"
+| ];
+|
+| const states = [
+|     "Tamil Nadu",
+|     "Karnataka",
+|     "Telangana",
+|     "Maharashtra",
+|     "Delhi",
+|     "Kerala",
+|     "West Bengal",
+|     "Gujarat"
+| ];
+|
+| const paymentMethods = [
+|     "UPI",
+|     "Credit Card",
+|     "Debit Card",
+|     "Net Banking",
+|     "Cash on Delivery"
+| ];
+|
+| const orderStatuses = [
+|     "Delivered",
+|     "Shipped",
+|     "Processing",
+|     "Cancelled",
+|     "Returned"
+| ];
+|
+| const sellers = [
+|     "RetailHub",
+|     "TechWorld",
+|     "MegaStore",
+|     "DigitalMart",
+|     "SmartShop",
+|     "PrimeRetail"
+| ];
+|
+| const tags = [
+|     "new",
+|     "popular",
+|     "trending",
+|     "premium",
+|     "budget",
+|     "best-seller",
+|     "discount",
+|     "limited-stock"
+| ];
+|
+|
+| // Store documents temporarily
+| let documents = [];
+|
+|
+| // Generate 5000 documents
+| for (let i = 1; i <= 5000; i++) {
+|
+|     const category =
+|         categories[Math.floor(Math.random() * categories.length)];
+|
+|     const subCategory =
+|         subCategories[category][
+|             Math.floor(Math.random() * subCategories[category].length)
+|         ];
+|
+|     const brand =
+|         brands[Math.floor(Math.random() * brands.length)];
+|
+|     const city =
+|         cities[Math.floor(Math.random() * cities.length)];
+|
+|     const state =
+|         states[Math.floor(Math.random() * states.length)];
+|
+|     const paymentMethod =
+|         paymentMethods[
+|             Math.floor(Math.random() * paymentMethods.length)
+|         ];
+|
+|     const orderStatus =
+|         orderStatuses[
+|             Math.floor(Math.random() * orderStatuses.length)
+|         ];
+|
+|     const seller =
+|         sellers[
+|             Math.floor(Math.random() * sellers.length)
+|         ];
+|
+|
+|     const quantity =
+|         Math.floor(Math.random() * 5) + 1;
+|
+|     const price =
+|         Math.floor(Math.random() * 95000) + 500;
+|
+|     const discount =
+|         Math.floor(Math.random() * 51);
+|
+|     const discountedPrice =
+|         Math.round(
+|             price - (price * discount / 100)
+|         );
+|
+|     const rating =
+|         Number(
+|             (Math.random() * 4 + 1).toFixed(1)
+|         );
+|
+|     const stock =
+|         Math.floor(Math.random() * 500);
+|
+|
+|     // Generate 2 random tags
+|     const selectedTags = [];
+|
+|     for (let j = 0; j < 2; j++) {
+|
+|         selectedTags.push(
+|             tags[Math.floor(Math.random() * tags.length)]
+|         );
+|     }
+|
+|
+|     // Random date between 2024 and 2026
+|     const startDate =
+|         new Date("2024-01-01").getTime();
+|
+|     const endDate =
+|         new Date("2026-08-25").getTime();
+|
+|     const randomDate =
+|         new Date(
+|             startDate +
+|             Math.random() * (endDate - startDate)
+|         );
+|
+|
+|     // Create document
+|     const product = {
+|
+|         productId:
+|             "PROD" + String(i).padStart(5, "0"),
+|
+|         productName:
+|             brand + " " + subCategory + " " + i,
+|
+|         category: category,
+|
+|         subCategory: subCategory,
+|
+|         brand: brand,
+|
+|         price: price,
+|
+|         discountPercentage: discount,
+|
+|         discountedPrice: discountedPrice,
+|
+|         quantity: quantity,
+|
+|         revenue:
+|             discountedPrice * quantity,
+|
+|         rating: rating,
+|
+|         reviewCount:
+|             Math.floor(Math.random() * 5000),
+|
+|         stock: stock,
+|
+|         inStock:
+|             stock > 0,
+|
+|
+|         seller: {
+|
+|             name: seller,
+|
+|             sellerRating:
+|                 Number(
+|                     (Math.random() * 4 + 1).toFixed(1)
+|                 )
+|         },
+|
+|
+|         customer: {
+|
+|             customerId:
+|                 "CUS" +
+|                 String(
+|                     Math.floor(Math.random() * 1000) + 1
+|                 ).padStart(4, "0"),
+|
+|             city: city,
+|
+|             state: state,
+|
+|             age:
+|                 Math.floor(Math.random() * 50) + 18
+|         },
+|
+|
+|         payment: {
+|
+|             method: paymentMethod,
+|
+|             transactionId:
+|                 "TXN" +
+|                 Math.random()
+|                     .toString(36)
+|                     .substring(2, 12)
+|         },
+|
+|
+|         orderStatus: orderStatus,
+|
+|         orderDate: randomDate,
+|
+|         tags: selectedTags,
+|
+|
+|         specifications: {
+|
+|             warranty:
+|                 (Math.floor(Math.random() * 3) + 1) +
+|                 " years",
+|
+|             color: [
+|                 "Black",
+|                 "White",
+|                 "Blue",
+|                 "Red",
+|                 "Silver"
+|             ][Math.floor(Math.random() * 5)],
+|
+|             weight:
+|                 Number(
+|                     (Math.random() * 5 + 0.5).toFixed(2)
+|                 )
+|         },
+|
+|
+|         isFeatured:
+|             Math.random() > 0.7,
+|
+|         createdAt: new Date()
+|     };
+|
+|
+|     documents.push(product);
+|
+|
+|     // Insert every 500 documents
+|     if (documents.length === 500) {
+|
+|         db.aggex.insertMany(documents);
+|
+|         documents = [];
+|     }
+| }
+|
+| // Insert remaining documents
+| if (documents.length > 0) {
+|
+|     db.aggex.insertMany(documents);
+| }
+| print("5000 documents inserted successfully into aggex!");
+5000 documents inserted successfully into aggex!
+
+Atlas atlas-8hk621-shard-0 [primary] aggregateDB> db.aggex.aggregate([
+|     {
+|         $group: {
+|             _id: "$category",
+|             totalProducts: { $sum: 1 }
+|         }
+|     }
+| ])
+[
+  { _id: 'Furniture', totalProducts: 488 },
+  { _id: 'Fashion', totalProducts: 527 },
+  { _id: 'Books', totalProducts: 501 },
+  { _id: 'Sports', totalProducts: 511 },
+  { _id: 'Electronics', totalProducts: 486 },
+  { _id: 'Home Appliances', totalProducts: 494 },
+  { _id: 'Beauty', totalProducts: 475 },
+  { _id: 'Laptops', totalProducts: 504 },
+  { _id: 'Grocery', totalProducts: 507 },
+  { _id: 'Mobiles', totalProducts: 507 }
+]
+Atlas atlas-8hk621-shard-0 [primary] aggregateDB> db.aggex.aggregate([
+|     {
+|         $sort: {
+|             price: 1
+|         }
+|     }
+| ])
+[
+  {
+    _id: ObjectId('6aa109542c62646db4e21339'),
+    productId: 'PROD00522',
+    productName: 'Dell Sofa 522',
+    category: 'Furniture',
+    subCategory: 'Sofa',
+    brand: 'Dell',
+    price: 522,
+    discountPercentage: 34,
+    discountedPrice: 345,
+    quantity: 3,
+    revenue: 1035,
+    rating: 4.3,
+    reviewCount: 1614,
+    stock: 72,
+    inStock: true,
+    seller: { name: 'SmartShop', sellerRating: 3.7 },
+    customer: { customerId: 'CUS0789', city: 'Pune', state: 'Delhi', age: 44 },
+    payment: { method: 'Debit Card', transactionId: 'TXNfn52scc8cp' },
+    orderStatus: 'Processing',
+    orderDate: ISODate('2025-10-26T17:23:52.589Z'),
+    tags: [ 'discount', 'trending' ],
+    specifications: { warranty: '1 years', color: 'White', weight: 1.27 },
+    isFeatured: true,
+    createdAt: ISODate('2026-09-09T07:23:00.543Z')
+  },
+  {
+    _id: ObjectId('6aa109642c62646db4e21d34'),
+    productId: 'PROD03077',
+    productName: 'Apple Haircare 3077',
+    category: 'Beauty',
+    subCategory: 'Haircare',
+    brand: 'Apple',
+    price: 532,
+    discountPercentage: 37,
+    discountedPrice: 335,
+    quantity: 5,
+    revenue: 1675,
+    rating: 4.2,
+    reviewCount: 3428,
+    stock: 131,
+    inStock: true,
+    seller: { name: 'SmartShop', sellerRating: 1.1 },
+    customer: {
+      customerId: 'CUS0787',
+      city: 'Bangalore',
+      state: 'Telangana',
+      age: 27
+    },
+    payment: { method: 'UPI', transactionId: 'TXNneck5qkfk1' },
+    orderStatus: 'Delivered',
+    orderDate: ISODate('2024-05-13T17:20:39.413Z'),
+    tags: [ 'new', 'popular' ],
+    specifications: { warranty: '3 years', color: 'Black', weight: 3.12 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:16.277Z')
+  },
+  {
+    _id: ObjectId('6aa109642c62646db4e21d4d'),
+    productId: 'PROD03102',
+    productName: 'HP Chair 3102',
+    category: 'Furniture',
+    subCategory: 'Chair',
+    brand: 'HP',
+    price: 567,
+    discountPercentage: 16,
+    discountedPrice: 476,
+    quantity: 1,
+    revenue: 476,
+    rating: 2.9,
+    reviewCount: 1827,
+    stock: 203,
+    inStock: true,
+    seller: { name: 'RetailHub', sellerRating: 3.3 },
+    customer: { customerId: 'CUS0932', city: 'Kochi', state: 'Kerala', age: 53 },
+    payment: { method: 'Debit Card', transactionId: 'TXNuenlzshy29' },
+    orderStatus: 'Shipped',
+    orderDate: ISODate('2025-06-22T08:53:53.903Z'),
+    tags: [ 'new', 'best-seller' ],
+    specifications: { warranty: '1 years', color: 'Silver', weight: 2.93 },
+    isFeatured: true,
+    createdAt: ISODate('2026-09-09T07:23:16.278Z')
+  },
+  {
+    _id: ObjectId('6aa109682c62646db4e22046'),
+    productId: 'PROD03863',
+    productName: 'Apple Table 3863',
+    category: 'Furniture',
+    subCategory: 'Table',
+    brand: 'Apple',
+    price: 585,
+    discountPercentage: 39,
+    discountedPrice: 357,
+    quantity: 3,
+    revenue: 1071,
+    rating: 3.1,
+    reviewCount: 3920,
+    stock: 144,
+    inStock: true,
+    seller: { name: 'DigitalMart', sellerRating: 3 },
+    customer: { customerId: 'CUS0517', city: 'Chennai', state: 'Karnataka', age: 53 },
+    payment: { method: 'UPI', transactionId: 'TXN87030ve5l4' },
+    orderStatus: 'Cancelled',
+    orderDate: ISODate('2024-01-08T13:47:25.396Z'),
+    tags: [ 'premium', 'discount' ],
+    specifications: { warranty: '1 years', color: 'Silver', weight: 3.09 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:20.236Z')
+  },
+  {
+    _id: ObjectId('6aa109602c62646db4e21c77'),
+    productId: 'PROD02888',
+    productName: 'Dell Fitness 2888',
+    category: 'Sports',
+    subCategory: 'Fitness',
+    brand: 'Dell',
+    price: 586,
+    discountPercentage: 5,
+    discountedPrice: 557,
+    quantity: 1,
+    revenue: 557,
+    rating: 3.7,
+    reviewCount: 4947,
+    stock: 167,
+    inStock: true,
+    seller: { name: 'SmartShop', sellerRating: 5 },
+    customer: {
+      customerId: 'CUS0084',
+      city: 'Coimbatore',
+      state: 'Tamil Nadu',
+      age: 51
+    },
+    payment: { method: 'UPI', transactionId: 'TXNmukw7k12q1' },
+    orderStatus: 'Delivered',
+    orderDate: ISODate('2024-08-28T02:54:30.020Z'),
+    tags: [ 'new', 'new' ],
+    specifications: { warranty: '3 years', color: 'White', weight: 2.01 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:12.660Z')
+  },
+  {
+    _id: ObjectId('6aa109512c62646db4e21289'),
+    productId: 'PROD00346',
+    productName: 'OnePlus Student 346',
+    category: 'Laptops',
+    subCategory: 'Student',
+    brand: 'OnePlus',
+    price: 600,
+    discountPercentage: 19,
+    discountedPrice: 486,
+    quantity: 4,
+    revenue: 1944,
+    rating: 4,
+    reviewCount: 2176,
+    stock: 17,
+    inStock: true,
+    seller: { name: 'MegaStore', sellerRating: 1.5 },
+    customer: {
+      customerId: 'CUS0090',
+      city: 'Bangalore',
+      state: 'Maharashtra',
+      age: 26
+    },
+    payment: { method: 'Cash on Delivery', transactionId: 'TXNb1l51z6b97' },
+    orderStatus: 'Returned',
+    orderDate: ISODate('2024-02-16T19:30:05.728Z'),
+    tags: [ 'limited-stock', 'limited-stock' ],
+    specifications: { warranty: '1 years', color: 'Blue', weight: 5.47 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:22:57.434Z')
+  },
+  {
+    _id: ObjectId('6aa109542c62646db4e214f6'),
+    productId: 'PROD00967',
+    productName: 'Nike Speaker 967',
+    category: 'Electronics',
+    subCategory: 'Speaker',
+    brand: 'Nike',
+    price: 606,
+    discountPercentage: 18,
+    discountedPrice: 497,
+    quantity: 2,
+    revenue: 994,
+    rating: 3.2,
+    reviewCount: 561,
+    stock: 433,
+    inStock: true,
+    seller: { name: 'PrimeRetail', sellerRating: 4.5 },
+    customer: { customerId: 'CUS0189', city: 'Mumbai', state: 'Telangana', age: 38 },
+    payment: { method: 'Credit Card', transactionId: 'TXNqvbq5c1ik1' },
+    orderStatus: 'Shipped',
+    orderDate: ISODate('2026-01-27T15:19:54.583Z'),
+    tags: [ 'discount', 'popular' ],
+    specifications: { warranty: '2 years', color: 'Red', weight: 3.7 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:00.561Z')
+  },
+  {
+    _id: ObjectId('6aa109572c62646db4e21525'),
+    productId: 'PROD01014',
+    productName: 'LG Table 1014',
+    category: 'Furniture',
+    subCategory: 'Table',
+    brand: 'LG',
+    price: 607,
+    discountPercentage: 42,
+    discountedPrice: 352,
+    quantity: 4,
+    revenue: 1408,
+    rating: 4.8,
+    reviewCount: 3440,
+    stock: 365,
+    inStock: true,
+    seller: { name: 'RetailHub', sellerRating: 4.9 },
+    customer: {
+      customerId: 'CUS0543',
+      city: 'Chennai',
+      state: 'West Bengal',
+      age: 21
+    },
+    payment: { method: 'Net Banking', transactionId: 'TXN7lktivs0b5' },
+    orderStatus: 'Returned',
+    orderDate: ISODate('2024-06-18T08:53:18.189Z'),
+    tags: [ 'trending', 'popular' ],
+    specifications: { warranty: '1 years', color: 'White', weight: 4.5 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:03.527Z')
+  },
+  {
+    _id: ObjectId('6aa109592c62646db4e217b7'),
+    productId: 'PROD01672',
+    productName: 'AmazonBasics Makeup 1672',
+    category: 'Beauty',
+    subCategory: 'Makeup',
+    brand: 'AmazonBasics',
+    price: 664,
+    discountPercentage: 2,
+    discountedPrice: 651,
+    quantity: 2,
+    revenue: 1302,
+    rating: 3,
+    reviewCount: 3318,
+    stock: 104,
+    inStock: true,
+    seller: { name: 'RetailHub', sellerRating: 1.4 },
+    customer: { customerId: 'CUS0871', city: 'Hyderabad', state: 'Gujarat', age: 27 },
+    payment: { method: 'Net Banking', transactionId: 'TXN5ynpq8dh8d' },
+    orderStatus: 'Processing',
+    orderDate: ISODate('2025-07-02T17:42:07.728Z'),
+    tags: [ 'popular', 'budget' ],
+    specifications: { warranty: '2 years', color: 'White', weight: 4.37 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:05.587Z')
+  },
+  {
+    _id: ObjectId('6aa109592c62646db4e21774'),
+    productId: 'PROD01605',
+    productName: 'HP Washing Machine 1605',
+    category: 'Home Appliances',
+    subCategory: 'Washing Machine',
+    brand: 'HP',
+    price: 700,
+    discountPercentage: 34,
+    discountedPrice: 462,
+    quantity: 4,
+    revenue: 1848,
+    rating: 1.6,
+    reviewCount: 1260,
+    stock: 295,
+    inStock: true,
+    seller: { name: 'PrimeRetail', sellerRating: 5 },
+    customer: {
+      customerId: 'CUS0454',
+      city: 'Chennai',
+      state: 'West Bengal',
+      age: 57
+    },
+    payment: { method: 'Debit Card', transactionId: 'TXNsn8yp3oggs' },
+    orderStatus: 'Processing',
+    orderDate: ISODate('2024-09-14T10:39:37.484Z'),
+    tags: [ 'discount', 'best-seller' ],
+    specifications: { warranty: '3 years', color: 'Blue', weight: 1.32 },
+    isFeatured: true,
+    createdAt: ISODate('2026-09-09T07:23:05.585Z')
+  },
+  {
+    _id: ObjectId('6aa1096e2c62646db4e22453'),
+    productId: 'PROD04900',
+    productName: 'Adidas Fiction 4900',
+    category: 'Books',
+    subCategory: 'Fiction',
+    brand: 'Adidas',
+    price: 705,
+    discountPercentage: 39,
+    discountedPrice: 430,
+    quantity: 3,
+    revenue: 1290,
+    rating: 2.6,
+    reviewCount: 4381,
+    stock: 430,
+    inStock: true,
+    seller: { name: 'MegaStore', sellerRating: 3.2 },
+    customer: { customerId: 'CUS0572', city: 'Delhi', state: 'West Bengal', age: 59 },
+    payment: { method: 'Credit Card', transactionId: 'TXNaujponb1nu' },
+    orderStatus: 'Returned',
+    orderDate: ISODate('2026-03-10T03:55:22.302Z'),
+    tags: [ 'trending', 'discount' ],
+    specifications: { warranty: '1 years', color: 'Silver', weight: 2.62 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:26.666Z')
+  },
+  {
+    _id: ObjectId('6aa109602c62646db4e21c92'),
+    productId: 'PROD02915',
+    productName: 'LG Table 2915',
+    category: 'Furniture',
+    subCategory: 'Table',
+    brand: 'LG',
+    price: 707,
+    discountPercentage: 35,
+    discountedPrice: 460,
+    quantity: 2,
+    revenue: 920,
+    rating: 1.5,
+    reviewCount: 1874,
+    stock: 389,
+    inStock: true,
+    seller: { name: 'SmartShop', sellerRating: 4 },
+    customer: { customerId: 'CUS0278', city: 'Chennai', state: 'Kerala', age: 38 },
+    payment: { method: 'Credit Card', transactionId: 'TXNihgkgh9lgn' },
+    orderStatus: 'Cancelled',
+    orderDate: ISODate('2025-09-12T00:17:17.115Z'),
+    tags: [ 'trending', 'limited-stock' ],
+    specifications: { warranty: '3 years', color: 'Silver', weight: 4.1 },
+    isFeatured: true,
+    createdAt: ISODate('2026-09-09T07:23:12.661Z')
+  },
+  {
+    _id: ObjectId('6aa1096c2c62646db4e22133'),
+    productId: 'PROD04100',
+    productName: 'Nike Men 4100',
+    category: 'Fashion',
+    subCategory: 'Men',
+    brand: 'Nike',
+    price: 715,
+    discountPercentage: 40,
+    discountedPrice: 429,
+    quantity: 1,
+    revenue: 429,
+    rating: 4.7,
+    reviewCount: 4655,
+    stock: 338,
+    inStock: true,
+    seller: { name: 'PrimeRetail', sellerRating: 4.7 },
+    customer: { customerId: 'CUS0437', city: 'Chennai', state: 'Delhi', age: 28 },
+    payment: { method: 'Cash on Delivery', transactionId: 'TXNkd15ng2pda' },
+    orderStatus: 'Shipped',
+    orderDate: ISODate('2026-06-25T10:01:56.890Z'),
+    tags: [ 'popular', 'premium' ],
+    specifications: { warranty: '3 years', color: 'Black', weight: 1.24 },
+    isFeatured: true,
+    createdAt: ISODate('2026-09-09T07:23:24.056Z')
+  },
+  {
+    _id: ObjectId('6aa1096c2c62646db4e22126'),
+    productId: 'PROD04087',
+    productName: 'Dell Speaker 4087',
+    category: 'Electronics',
+    subCategory: 'Speaker',
+    brand: 'Dell',
+    price: 752,
+    discountPercentage: 31,
+    discountedPrice: 519,
+    quantity: 3,
+    revenue: 1557,
+    rating: 5,
+    reviewCount: 423,
+    stock: 354,
+    inStock: true,
+    seller: { name: 'DigitalMart', sellerRating: 1.9 },
+    customer: {
+      customerId: 'CUS0134',
+      city: 'Bangalore',
+      state: 'Maharashtra',
+      age: 22
+    },
+    payment: { method: 'Cash on Delivery', transactionId: 'TXNk5g6cqznvi' },
+    orderStatus: 'Processing',
+    orderDate: ISODate('2025-03-20T08:00:53.702Z'),
+    tags: [ 'budget', 'best-seller' ],
+    specifications: { warranty: '2 years', color: 'Blue', weight: 4.65 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:24.055Z')
+  },
+  {
+    _id: ObjectId('6aa109592c62646db4e21710'),
+    productId: 'PROD01505',
+    productName: 'Sony Men 1505',
+    category: 'Fashion',
+    subCategory: 'Men',
+    brand: 'Sony',
+    price: 758,
+    discountPercentage: 23,
+    discountedPrice: 584,
+    quantity: 2,
+    revenue: 1168,
+    rating: 2.1,
+    reviewCount: 3477,
+    stock: 355,
+    inStock: true,
+    seller: { name: 'TechWorld', sellerRating: 1.4 },
+    customer: {
+      customerId: 'CUS0011',
+      city: 'Coimbatore',
+      state: 'West Bengal',
+      age: 38
+    },
+    payment: { method: 'Credit Card', transactionId: 'TXNmlq3lk4sua' },
+    orderStatus: 'Delivered',
+    orderDate: ISODate('2026-08-19T08:59:35.527Z'),
+    tags: [ 'budget', 'popular' ],
+    specifications: { warranty: '1 years', color: 'Red', weight: 4.36 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:05.582Z')
+  },
+  {
+    _id: ObjectId('6aa109682c62646db4e21f00'),
+    productId: 'PROD03537',
+    productName: 'LG Men 3537',
+    category: 'Fashion',
+    subCategory: 'Men',
+    brand: 'LG',
+    price: 772,
+    discountPercentage: 42,
+    discountedPrice: 448,
+    quantity: 2,
+    revenue: 896,
+    rating: 3.6,
+    reviewCount: 834,
+    stock: 334,
+    inStock: true,
+    seller: { name: 'TechWorld', sellerRating: 3.9 },
+    customer: { customerId: 'CUS0326', city: 'Ahmedabad', state: 'Gujarat', age: 67 },
+    payment: { method: 'Credit Card', transactionId: 'TXNtzmy8dajju' },
+    orderStatus: 'Processing',
+    orderDate: ISODate('2026-07-27T01:40:51.904Z'),
+    tags: [ 'new', 'discount' ],
+    specifications: { warranty: '1 years', color: 'Silver', weight: 1.11 },
+    isFeatured: true,
+    createdAt: ISODate('2026-09-09T07:23:20.226Z')
+  },
+  {
+    _id: ObjectId('6aa109572c62646db4e21587'),
+    productId: 'PROD01112',
+    productName: 'Apple Business 1112',
+    category: 'Laptops',
+    subCategory: 'Business',
+    brand: 'Apple',
+    price: 796,
+    discountPercentage: 14,
+    discountedPrice: 685,
+    quantity: 1,
+    revenue: 685,
+    rating: 2.4,
+    reviewCount: 3719,
+    stock: 146,
+    inStock: true,
+    seller: { name: 'RetailHub', sellerRating: 4.3 },
+    customer: { customerId: 'CUS0721', city: 'Pune', state: 'Tamil Nadu', age: 33 },
+    payment: { method: 'UPI', transactionId: 'TXN3mwmxn2f79' },
+    orderStatus: 'Shipped',
+    orderDate: ISODate('2024-02-01T08:54:03.137Z'),
+    tags: [ 'limited-stock', 'budget' ],
+    specifications: { warranty: '2 years', color: 'Red', weight: 2.71 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:03.531Z')
+  },
+  {
+    _id: ObjectId('6aa109512c62646db4e2124f'),
+    productId: 'PROD00288',
+    productName: 'Samsung Sofa 288',
+    category: 'Furniture',
+    subCategory: 'Sofa',
+    brand: 'Samsung',
+    price: 857,
+    discountPercentage: 6,
+    discountedPrice: 806,
+    quantity: 5,
+    revenue: 4030,
+    rating: 3.7,
+    reviewCount: 4304,
+    stock: 297,
+    inStock: true,
+    seller: { name: 'MegaStore', sellerRating: 4.3 },
+    customer: { customerId: 'CUS0769', city: 'Delhi', state: 'Karnataka', age: 37 },
+    payment: { method: 'Debit Card', transactionId: 'TXNib94oczona' },
+    orderStatus: 'Returned',
+    orderDate: ISODate('2025-08-07T11:37:19.258Z'),
+    tags: [ 'premium', 'discount' ],
+    specifications: { warranty: '1 years', color: 'Red', weight: 3.75 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:22:57.432Z')
+  },
+  {
+    _id: ObjectId('6aa109572c62646db4e2157a'),
+    productId: 'PROD01099',
+    productName: 'Boat Chair 1099',
+    category: 'Furniture',
+    subCategory: 'Chair',
+    brand: 'Boat',
+    price: 862,
+    discountPercentage: 19,
+    discountedPrice: 698,
+    quantity: 1,
+    revenue: 698,
+    rating: 1.5,
+    reviewCount: 4116,
+    stock: 403,
+    inStock: true,
+    seller: { name: 'SmartShop', sellerRating: 1.9 },
+    customer: {
+      customerId: 'CUS0604',
+      city: 'Hyderabad',
+      state: 'Karnataka',
+      age: 57
+    },
+    payment: { method: 'Cash on Delivery', transactionId: 'TXN4qhrawgnd4' },
+    orderStatus: 'Delivered',
+    orderDate: ISODate('2024-09-23T19:58:07.287Z'),
+    tags: [ 'trending', 'budget' ],
+    specifications: { warranty: '2 years', color: 'Black', weight: 1.62 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:03.530Z')
+  },
+  {
+    _id: ObjectId('6aa1096c2c62646db4e222b4'),
+    productId: 'PROD04485',
+    productName: 'Nike Camera 4485',
+    category: 'Electronics',
+    subCategory: 'Camera',
+    brand: 'Nike',
+    price: 880,
+    discountPercentage: 50,
+    discountedPrice: 440,
+    quantity: 2,
+    revenue: 880,
+    rating: 2.6,
+    reviewCount: 3069,
+    stock: 164,
+    inStock: true,
+    seller: { name: 'SmartShop', sellerRating: 2.8 },
+    customer: { customerId: 'CUS0192', city: 'Kolkata', state: 'Gujarat', age: 26 },
+    payment: { method: 'Credit Card', transactionId: 'TXNzeb4vh2yjy' },
+    orderStatus: 'Cancelled',
+    orderDate: ISODate('2025-09-28T15:36:15.321Z'),
+    tags: [ 'discount', 'popular' ],
+    specifications: { warranty: '1 years', color: 'Black', weight: 2.34 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:24.067Z')
+  }
+]
+Type "it" for more
+Atlas atlas-8hk621-shard-0 [primary] aggregateDB>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+Atlas atlas-8hk621-shard-0 [primary] aggregateDB> db.aggex.aggregate([
+|     {
+|         $sort: {
+|             revenue: -1
+|         }
+|     }
+| ])
+[
+  {
+    _id: ObjectId('6aa1096c2c62646db4e221c7'),
+    productId: 'PROD04248',
+    productName: 'Boat Haircare 4248',
+    category: 'Beauty',
+    subCategory: 'Haircare',
+    brand: 'Boat',
+    price: 94800,
+    discountPercentage: 0,
+    discountedPrice: 94800,
+    quantity: 5,
+    revenue: 474000,
+    rating: 5,
+    reviewCount: 382,
+    stock: 388,
+    inStock: true,
+    seller: { name: 'RetailHub', sellerRating: 4.3 },
+    customer: { customerId: 'CUS0472', city: 'Coimbatore', state: 'Delhi', age: 23 },
+    payment: { method: 'Cash on Delivery', transactionId: 'TXNf7z90b1spq' },
+    orderStatus: 'Returned',
+    orderDate: ISODate('2025-05-04T15:50:45.334Z'),
+    tags: [ 'best-seller', 'trending' ],
+    specifications: { warranty: '3 years', color: 'Red', weight: 2.08 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:24.060Z')
+  },
+  {
+    _id: ObjectId('6aa1095d2c62646db4e21a8a'),
+    productId: 'PROD02395',
+    productName: 'HP Smartwatch 2395',
+    category: 'Electronics',
+    subCategory: 'Smartwatch',
+    brand: 'HP',
+    price: 92062,
+    discountPercentage: 0,
+    discountedPrice: 92062,
+    quantity: 5,
+    revenue: 460310,
+    rating: 4.7,
+    reviewCount: 1938,
+    stock: 482,
+    inStock: true,
+    seller: { name: 'PrimeRetail', sellerRating: 1.7 },
+    customer: {
+      customerId: 'CUS0286',
+      city: 'Ahmedabad',
+      state: 'Karnataka',
+      age: 64
+    },
+    payment: { method: 'Cash on Delivery', transactionId: 'TXNchaur3435b' },
+    orderStatus: 'Processing',
+    orderDate: ISODate('2025-12-22T17:16:25.741Z'),
+    tags: [ 'new', 'discount' ],
+    specifications: { warranty: '2 years', color: 'Blue', weight: 3.09 },
+    isFeatured: true,
+    createdAt: ISODate('2026-09-09T07:23:09.116Z')
+  },
+  {
+    _id: ObjectId('6aa109512c62646db4e211cf'),
+    productId: 'PROD00160',
+    productName: 'AmazonBasics Refrigerator 160',
+    category: 'Home Appliances',
+    subCategory: 'Refrigerator',
+    brand: 'AmazonBasics',
+    price: 91490,
+    discountPercentage: 2,
+    discountedPrice: 89660,
+    quantity: 5,
+    revenue: 448300,
+    rating: 4.6,
+    reviewCount: 1163,
+    stock: 107,
+    inStock: true,
+    seller: { name: 'MegaStore', sellerRating: 3.5 },
+    customer: { customerId: 'CUS0480', city: 'Kochi', state: 'Delhi', age: 52 },
+    payment: { method: 'Net Banking', transactionId: 'TXNc5netstgiy' },
+    orderStatus: 'Processing',
+    orderDate: ISODate('2026-05-01T08:22:45.542Z'),
+    tags: [ 'popular', 'new' ],
+    specifications: { warranty: '3 years', color: 'Black', weight: 2.09 },
+    isFeatured: true,
+    createdAt: ISODate('2026-09-09T07:22:57.426Z')
+  },
+  {
+    _id: ObjectId('6aa109682c62646db4e21f12'),
+    productId: 'PROD03555',
+    productName: 'HP Table 3555',
+    category: 'Furniture',
+    subCategory: 'Table',
+    brand: 'HP',
+    price: 92362,
+    discountPercentage: 3,
+    discountedPrice: 89591,
+    quantity: 5,
+    revenue: 447955,
+    rating: 2.8,
+    reviewCount: 4811,
+    stock: 85,
+    inStock: true,
+    seller: { name: 'MegaStore', sellerRating: 2.5 },
+    customer: {
+      customerId: 'CUS0806',
+      city: 'Hyderabad',
+      state: 'Tamil Nadu',
+      age: 31
+    },
+    payment: { method: 'Net Banking', transactionId: 'TXNkjzh2yp6v2' },
+    orderStatus: 'Cancelled',
+    orderDate: ISODate('2025-11-12T20:00:46.048Z'),
+    tags: [ 'popular', 'discount' ],
+    specifications: { warranty: '3 years', color: 'Silver', weight: 2.16 },
+    isFeatured: true,
+    createdAt: ISODate('2026-09-09T07:23:20.227Z')
+  },
+  {
+    _id: ObjectId('6aa109592c62646db4e21850'),
+    productId: 'PROD01825',
+    productName: 'Lenovo Refrigerator 1825',
+    category: 'Home Appliances',
+    subCategory: 'Refrigerator',
+    brand: 'Lenovo',
+    price: 95244,
+    discountPercentage: 7,
+    discountedPrice: 88577,
+    quantity: 5,
+    revenue: 442885,
+    rating: 1.8,
+    reviewCount: 2745,
+    stock: 135,
+    inStock: true,
+    seller: { name: 'PrimeRetail', sellerRating: 1.4 },
+    customer: { customerId: 'CUS0137', city: 'Kochi', state: 'Karnataka', age: 53 },
+    payment: { method: 'Net Banking', transactionId: 'TXNd2b786xks3' },
+    orderStatus: 'Shipped',
+    orderDate: ISODate('2025-06-05T02:47:30.122Z'),
+    tags: [ 'limited-stock', 'premium' ],
+    specifications: { warranty: '3 years', color: 'Blue', weight: 1.51 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:05.592Z')
+  },
+  {
+    _id: ObjectId('6aa109512c62646db4e212fc'),
+    productId: 'PROD00461',
+    productName: 'AmazonBasics Makeup 461',
+    category: 'Beauty',
+    subCategory: 'Makeup',
+    brand: 'AmazonBasics',
+    price: 93687,
+    discountPercentage: 7,
+    discountedPrice: 87129,
+    quantity: 5,
+    revenue: 435645,
+    rating: 2.1,
+    reviewCount: 193,
+    stock: 99,
+    inStock: true,
+    seller: { name: 'DigitalMart', sellerRating: 2 },
+    customer: { customerId: 'CUS0007', city: 'Ahmedabad', state: 'Kerala', age: 52 },
+    payment: { method: 'Cash on Delivery', transactionId: 'TXNdzwlvnt9ao' },
+    orderStatus: 'Delivered',
+    orderDate: ISODate('2026-08-18T08:51:55.886Z'),
+    tags: [ 'best-seller', 'new' ],
+    specifications: { warranty: '3 years', color: 'Silver', weight: 0.52 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:22:57.439Z')
+  },
+  {
+    _id: ObjectId('6aa1096e2c62646db4e22340'),
+    productId: 'PROD04625',
+    productName: 'Lenovo Fiction 4625',
+    category: 'Books',
+    subCategory: 'Fiction',
+    brand: 'Lenovo',
+    price: 93079,
+    discountPercentage: 7,
+    discountedPrice: 86563,
+    quantity: 5,
+    revenue: 432815,
+    rating: 1.4,
+    reviewCount: 1390,
+    stock: 463,
+    inStock: true,
+    seller: { name: 'RetailHub', sellerRating: 2.3 },
+    customer: {
+      customerId: 'CUS0954',
+      city: 'Bangalore',
+      state: 'Karnataka',
+      age: 63
+    },
+    payment: { method: 'UPI', transactionId: 'TXNcwagq1iees' },
+    orderStatus: 'Returned',
+    orderDate: ISODate('2025-10-10T14:02:26.621Z'),
+    tags: [ 'discount', 'discount' ],
+    specifications: { warranty: '3 years', color: 'White', weight: 3.95 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:26.659Z')
+  },
+  {
+    _id: ObjectId('6aa109682c62646db4e21fcb'),
+    productId: 'PROD03740',
+    productName: 'HP Cricket 3740',
+    category: 'Sports',
+    subCategory: 'Cricket',
+    brand: 'HP',
+    price: 92484,
+    discountPercentage: 7,
+    discountedPrice: 86010,
+    quantity: 5,
+    revenue: 430050,
+    rating: 1.8,
+    reviewCount: 3910,
+    stock: 343,
+    inStock: true,
+    seller: { name: 'RetailHub', sellerRating: 2.1 },
+    customer: { customerId: 'CUS0524', city: 'Mumbai', state: 'Karnataka', age: 36 },
+    payment: { method: 'Net Banking', transactionId: 'TXNhx8qhzkwnw' },
+    orderStatus: 'Processing',
+    orderDate: ISODate('2026-06-23T23:18:39.452Z'),
+    tags: [ 'trending', 'discount' ],
+    specifications: { warranty: '2 years', color: 'Silver', weight: 2.35 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:20.232Z')
+  },
+  {
+    _id: ObjectId('6aa109512c62646db4e21287'),
+    productId: 'PROD00344',
+    productName: 'OnePlus Beverages 344',
+    category: 'Grocery',
+    subCategory: 'Beverages',
+    brand: 'OnePlus',
+    price: 90644,
+    discountPercentage: 6,
+    discountedPrice: 85205,
+    quantity: 5,
+    revenue: 426025,
+    rating: 3.2,
+    reviewCount: 4269,
+    stock: 190,
+    inStock: true,
+    seller: { name: 'SmartShop', sellerRating: 1.3 },
+    customer: { customerId: 'CUS0574', city: 'Pune', state: 'Tamil Nadu', age: 60 },
+    payment: { method: 'Debit Card', transactionId: 'TXNhe2te9lbnr' },
+    orderStatus: 'Returned',
+    orderDate: ISODate('2026-01-13T03:39:56.059Z'),
+    tags: [ 'discount', 'new' ],
+    specifications: { warranty: '3 years', color: 'Red', weight: 4.03 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:22:57.434Z')
+  },
+  {
+    _id: ObjectId('6aa109592c62646db4e218ba'),
+    productId: 'PROD01931',
+    productName: 'Lenovo Android 1931',
+    category: 'Mobiles',
+    subCategory: 'Android',
+    brand: 'Lenovo',
+    price: 83513,
+    discountPercentage: 0,
+    discountedPrice: 83513,
+    quantity: 5,
+    revenue: 417565,
+    rating: 2.7,
+    reviewCount: 3268,
+    stock: 222,
+    inStock: true,
+    seller: { name: 'RetailHub', sellerRating: 3.9 },
+    customer: {
+      customerId: 'CUS0731',
+      city: 'Hyderabad',
+      state: 'Maharashtra',
+      age: 45
+    },
+    payment: { method: 'Cash on Delivery', transactionId: 'TXNxbfet2gt4c' },
+    orderStatus: 'Delivered',
+    orderDate: ISODate('2024-02-08T06:57:08.668Z'),
+    tags: [ 'best-seller', 'limited-stock' ],
+    specifications: { warranty: '3 years', color: 'White', weight: 2.04 },
+    isFeatured: true,
+    createdAt: ISODate('2026-09-09T07:23:05.595Z')
+  },
+  {
+    _id: ObjectId('6aa109572c62646db4e21656'),
+    productId: 'PROD01319',
+    productName: 'Samsung Staples 1319',
+    category: 'Grocery',
+    subCategory: 'Staples',
+    brand: 'Samsung',
+    price: 84370,
+    discountPercentage: 2,
+    discountedPrice: 82683,
+    quantity: 5,
+    revenue: 413415,
+    rating: 2.9,
+    reviewCount: 2770,
+    stock: 240,
+    inStock: true,
+    seller: { name: 'RetailHub', sellerRating: 1.1 },
+    customer: {
+      customerId: 'CUS0451',
+      city: 'Coimbatore',
+      state: 'West Bengal',
+      age: 18
+    },
+    payment: { method: 'Credit Card', transactionId: 'TXNwnidzw06n6' },
+    orderStatus: 'Returned',
+    orderDate: ISODate('2024-10-18T00:36:21.736Z'),
+    tags: [ 'budget', 'new' ],
+    specifications: { warranty: '1 years', color: 'Blue', weight: 4.5 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:03.541Z')
+  },
+  {
+    _id: ObjectId('6aa109572c62646db4e215c8'),
+    productId: 'PROD01177',
+    productName: 'Boat Business 1177',
+    category: 'Laptops',
+    subCategory: 'Business',
+    brand: 'Boat',
+    price: 82587,
+    discountPercentage: 0,
+    discountedPrice: 82587,
+    quantity: 5,
+    revenue: 412935,
+    rating: 4.5,
+    reviewCount: 3585,
+    stock: 378,
+    inStock: true,
+    seller: { name: 'RetailHub', sellerRating: 2.3 },
+    customer: {
+      customerId: 'CUS0037',
+      city: 'Coimbatore',
+      state: 'West Bengal',
+      age: 26
+    },
+    payment: { method: 'Net Banking', transactionId: 'TXNqvp0ttc6un' },
+    orderStatus: 'Returned',
+    orderDate: ISODate('2024-11-24T03:38:14.050Z'),
+    tags: [ 'budget', 'discount' ],
+    specifications: { warranty: '3 years', color: 'Red', weight: 1.93 },
+    isFeatured: true,
+    createdAt: ISODate('2026-09-09T07:23:03.534Z')
+  },
+  {
+    _id: ObjectId('6aa109592c62646db4e217e3'),
+    productId: 'PROD01716',
+    productName: 'Dell Programming 1716',
+    category: 'Books',
+    subCategory: 'Programming',
+    brand: 'Dell',
+    price: 94897,
+    discountPercentage: 13,
+    discountedPrice: 82560,
+    quantity: 5,
+    revenue: 412800,
+    rating: 4.2,
+    reviewCount: 3770,
+    stock: 108,
+    inStock: true,
+    seller: { name: 'DigitalMart', sellerRating: 4.1 },
+    customer: {
+      customerId: 'CUS0827',
+      city: 'Bangalore',
+      state: 'Maharashtra',
+      age: 43
+    },
+    payment: { method: 'Debit Card', transactionId: 'TXNoxrgnti1yf' },
+    orderStatus: 'Delivered',
+    orderDate: ISODate('2026-02-01T00:34:04.150Z'),
+    tags: [ 'new', 'discount' ],
+    specifications: { warranty: '1 years', color: 'Red', weight: 3.65 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:05.588Z')
+  },
+  {
+    _id: ObjectId('6aa109602c62646db4e21bcb'),
+    productId: 'PROD02716',
+    productName: 'Samsung Beverages 2716',
+    category: 'Grocery',
+    subCategory: 'Beverages',
+    brand: 'Samsung',
+    price: 94502,
+    discountPercentage: 13,
+    discountedPrice: 82217,
+    quantity: 5,
+    revenue: 411085,
+    rating: 4.3,
+    reviewCount: 3437,
+    stock: 71,
+    inStock: true,
+    seller: { name: 'RetailHub', sellerRating: 4.3 },
+    customer: { customerId: 'CUS0912', city: 'Hyderabad', state: 'Gujarat', age: 58 },
+    payment: { method: 'Cash on Delivery', transactionId: 'TXNv17uv54q5l' },
+    orderStatus: 'Delivered',
+    orderDate: ISODate('2025-05-25T23:32:34.472Z'),
+    tags: [ 'limited-stock', 'budget' ],
+    specifications: { warranty: '1 years', color: 'Silver', weight: 4.84 },
+    isFeatured: true,
+    createdAt: ISODate('2026-09-09T07:23:12.655Z')
+  },
+  {
+    _id: ObjectId('6aa109542c62646db4e213a9'),
+    productId: 'PROD00634',
+    productName: 'Sony Microwave 634',
+    category: 'Home Appliances',
+    subCategory: 'Microwave',
+    brand: 'Sony',
+    price: 86929,
+    discountPercentage: 6,
+    discountedPrice: 81713,
+    quantity: 5,
+    revenue: 408565,
+    rating: 4.9,
+    reviewCount: 4951,
+    stock: 257,
+    inStock: true,
+    seller: { name: 'PrimeRetail', sellerRating: 2.7 },
+    customer: { customerId: 'CUS0288', city: 'Bangalore', state: 'Delhi', age: 42 },
+    payment: { method: 'Net Banking', transactionId: 'TXNvvalzyxa0j' },
+    orderStatus: 'Processing',
+    orderDate: ISODate('2025-11-24T15:54:24.138Z'),
+    tags: [ 'best-seller', 'best-seller' ],
+    specifications: { warranty: '3 years', color: 'Blue', weight: 0.73 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:00.547Z')
+  },
+  {
+    _id: ObjectId('6aa109542c62646db4e2132d'),
+    productId: 'PROD00510',
+    productName: 'OnePlus Kids 510',
+    category: 'Fashion',
+    subCategory: 'Kids',
+    brand: 'OnePlus',
+    price: 82504,
+    discountPercentage: 1,
+    discountedPrice: 81679,
+    quantity: 5,
+    revenue: 408395,
+    rating: 2.9,
+    reviewCount: 2430,
+    stock: 410,
+    inStock: true,
+    seller: { name: 'MegaStore', sellerRating: 4.1 },
+    customer: { customerId: 'CUS0873', city: 'Delhi', state: 'Tamil Nadu', age: 24 },
+    payment: { method: 'Credit Card', transactionId: 'TXNzc5v7bkl09' },
+    orderStatus: 'Processing',
+    orderDate: ISODate('2026-04-23T18:17:36.498Z'),
+    tags: [ 'premium', 'budget' ],
+    specifications: { warranty: '3 years', color: 'Blue', weight: 2.15 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:00.542Z')
+  },
+  {
+    _id: ObjectId('6aa109592c62646db4e21814'),
+    productId: 'PROD01765',
+    productName: 'Samsung Business 1765',
+    category: 'Laptops',
+    subCategory: 'Business',
+    brand: 'Samsung',
+    price: 84655,
+    discountPercentage: 4,
+    discountedPrice: 81269,
+    quantity: 5,
+    revenue: 406345,
+    rating: 1.2,
+    reviewCount: 3515,
+    stock: 296,
+    inStock: true,
+    seller: { name: 'SmartShop', sellerRating: 2 },
+    customer: {
+      customerId: 'CUS0533',
+      city: 'Hyderabad',
+      state: 'Maharashtra',
+      age: 28
+    },
+    payment: { method: 'Debit Card', transactionId: 'TXNkbkedxrsqm' },
+    orderStatus: 'Cancelled',
+    orderDate: ISODate('2024-03-25T12:45:25.610Z'),
+    tags: [ 'premium', 'budget' ],
+    specifications: { warranty: '3 years', color: 'White', weight: 5.48 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:05.590Z')
+  },
+  {
+    _id: ObjectId('6aa109592c62646db4e21791'),
+    productId: 'PROD01634',
+    productName: 'Boat Android 1634',
+    category: 'Mobiles',
+    subCategory: 'Android',
+    brand: 'Boat',
+    price: 85356,
+    discountPercentage: 5,
+    discountedPrice: 81088,
+    quantity: 5,
+    revenue: 405440,
+    rating: 1.2,
+    reviewCount: 236,
+    stock: 456,
+    inStock: true,
+    seller: { name: 'DigitalMart', sellerRating: 4.9 },
+    customer: { customerId: 'CUS0877', city: 'Pune', state: 'Kerala', age: 56 },
+    payment: { method: 'UPI', transactionId: 'TXNpsj56ckxrx' },
+    orderStatus: 'Cancelled',
+    orderDate: ISODate('2025-06-22T07:46:29.571Z'),
+    tags: [ 'premium', 'discount' ],
+    specifications: { warranty: '2 years', color: 'Silver', weight: 0.59 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:05.586Z')
+  },
+  {
+    _id: ObjectId('6aa109592c62646db4e217f8'),
+    productId: 'PROD01737',
+    productName: 'Adidas Chair 1737',
+    category: 'Furniture',
+    subCategory: 'Chair',
+    brand: 'Adidas',
+    price: 88980,
+    discountPercentage: 9,
+    discountedPrice: 80972,
+    quantity: 5,
+    revenue: 404860,
+    rating: 1.7,
+    reviewCount: 18,
+    stock: 148,
+    inStock: true,
+    seller: { name: 'PrimeRetail', sellerRating: 3 },
+    customer: { customerId: 'CUS0524', city: 'Mumbai', state: 'Karnataka', age: 51 },
+    payment: { method: 'Net Banking', transactionId: 'TXNpbh5g7h1pw' },
+    orderStatus: 'Processing',
+    orderDate: ISODate('2024-09-27T07:16:50.390Z'),
+    tags: [ 'new', 'best-seller' ],
+    specifications: { warranty: '1 years', color: 'White', weight: 2.31 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:05.589Z')
+  },
+  {
+    _id: ObjectId('6aa109602c62646db4e21c4a'),
+    productId: 'PROD02843',
+    productName: 'OnePlus Cricket 2843',
+    category: 'Sports',
+    subCategory: 'Cricket',
+    brand: 'OnePlus',
+    price: 90627,
+    discountPercentage: 11,
+    discountedPrice: 80658,
+    quantity: 5,
+    revenue: 403290,
+    rating: 3.7,
+    reviewCount: 4801,
+    stock: 392,
+    inStock: true,
+    seller: { name: 'MegaStore', sellerRating: 1.3 },
+    customer: { customerId: 'CUS0804', city: 'Chennai', state: 'Kerala', age: 38 },
+    payment: { method: 'Net Banking', transactionId: 'TXN49gngqpxa8' },
+    orderStatus: 'Shipped',
+    orderDate: ISODate('2024-08-11T06:42:22.902Z'),
+    tags: [ 'new', 'popular' ],
+    specifications: { warranty: '1 years', color: 'Red', weight: 2.17 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:12.659Z')
+  }
+]
+Type "it" for more
+Atlas atlas-8hk621-shard-0 [primary] aggregateDB> db.aggex.aggregate([
+|     {
+|         $sort: {
+|             price: -1
+|         }
+|     },
+|     {
+|         $limit: 5
+|     }
+| ])
+[
+  {
+    _id: ObjectId('6aa1096e2c62646db4e22474'),
+    productId: 'PROD04933',
+    productName: 'HP Table 4933',
+    category: 'Furniture',
+    subCategory: 'Table',
+    brand: 'HP',
+    price: 95478,
+    discountPercentage: 0,
+    discountedPrice: 95478,
+    quantity: 1,
+    revenue: 95478,
+    rating: 3.2,
+    reviewCount: 2031,
+    stock: 385,
+    inStock: true,
+    seller: { name: 'MegaStore', sellerRating: 2 },
+    customer: {
+      customerId: 'CUS0596',
+      city: 'Chennai',
+      state: 'Maharashtra',
+      age: 32
+    },
+    payment: { method: 'Debit Card', transactionId: 'TXNwszmj3fnsa' },
+    orderStatus: 'Shipped',
+    orderDate: ISODate('2026-08-20T07:40:07.116Z'),
+    tags: [ 'budget', 'new' ],
+    specifications: { warranty: '3 years', color: 'White', weight: 3.95 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:26.667Z')
+  },
+  {
+    _id: ObjectId('6aa1096e2c62646db4e22344'),
+    productId: 'PROD04629',
+    productName: 'Sony Kids 4629',
+    category: 'Fashion',
+    subCategory: 'Kids',
+    brand: 'Sony',
+    price: 95469,
+    discountPercentage: 36,
+    discountedPrice: 61100,
+    quantity: 5,
+    revenue: 305500,
+    rating: 3.7,
+    reviewCount: 3525,
+    stock: 132,
+    inStock: true,
+    seller: { name: 'MegaStore', sellerRating: 1.5 },
+    customer: { customerId: 'CUS0650', city: 'Kolkata', state: 'Karnataka', age: 57 },
+    payment: { method: 'Credit Card', transactionId: 'TXN95d4h6qrzy' },
+    orderStatus: 'Delivered',
+    orderDate: ISODate('2024-12-31T12:28:57.400Z'),
+    tags: [ 'limited-stock', 'popular' ],
+    specifications: { warranty: '1 years', color: 'Blue', weight: 2.09 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:26.659Z')
+  },
+  {
+    _id: ObjectId('6aa1095d2c62646db4e21ac4'),
+    productId: 'PROD02453',
+    productName: 'Lenovo Chair 2453',
+    category: 'Furniture',
+    subCategory: 'Chair',
+    brand: 'Lenovo',
+    price: 95458,
+    discountPercentage: 15,
+    discountedPrice: 81139,
+    quantity: 4,
+    revenue: 324556,
+    rating: 3.6,
+    reviewCount: 3446,
+    stock: 468,
+    inStock: true,
+    seller: { name: 'RetailHub', sellerRating: 3.6 },
+    customer: {
+      customerId: 'CUS0140',
+      city: 'Ahmedabad',
+      state: 'Telangana',
+      age: 39
+    },
+    payment: { method: 'Debit Card', transactionId: 'TXNiv3lf0dh2g' },
+    orderStatus: 'Shipped',
+    orderDate: ISODate('2024-08-02T09:26:58.654Z'),
+    tags: [ 'trending', 'discount' ],
+    specifications: { warranty: '2 years', color: 'White', weight: 1.36 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:09.118Z')
+  },
+  {
+    _id: ObjectId('6aa109602c62646db4e21bc8'),
+    productId: 'PROD02713',
+    productName: 'Lenovo Fiction 2713',
+    category: 'Books',
+    subCategory: 'Fiction',
+    brand: 'Lenovo',
+    price: 95456,
+    discountPercentage: 48,
+    discountedPrice: 49637,
+    quantity: 2,
+    revenue: 99274,
+    rating: 3.1,
+    reviewCount: 3884,
+    stock: 261,
+    inStock: true,
+    seller: { name: 'SmartShop', sellerRating: 1.8 },
+    customer: {
+      customerId: 'CUS0051',
+      city: 'Coimbatore',
+      state: 'Karnataka',
+      age: 20
+    },
+    payment: { method: 'Debit Card', transactionId: 'TXNo8o6jkd8tu' },
+    orderStatus: 'Returned',
+    orderDate: ISODate('2024-12-11T21:09:55.832Z'),
+    tags: [ 'popular', 'limited-stock' ],
+    specifications: { warranty: '2 years', color: 'Red', weight: 3.82 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:12.655Z')
+  },
+  {
+    _id: ObjectId('6aa109572c62646db4e21651'),
+    productId: 'PROD01314',
+    productName: 'AmazonBasics Cricket 1314',
+    category: 'Sports',
+    subCategory: 'Cricket',
+    brand: 'AmazonBasics',
+    price: 95450,
+    discountPercentage: 18,
+    discountedPrice: 78269,
+    quantity: 3,
+    revenue: 234807,
+    rating: 3.2,
+    reviewCount: 3442,
+    stock: 242,
+    inStock: true,
+    seller: { name: 'DigitalMart', sellerRating: 3.5 },
+    customer: { customerId: 'CUS0023', city: 'Pune', state: 'Delhi', age: 45 },
+    payment: { method: 'Credit Card', transactionId: 'TXN5t5zh2i442' },
+    orderStatus: 'Processing',
+    orderDate: ISODate('2026-05-06T16:01:58.871Z'),
+    tags: [ 'popular', 'trending' ],
+    specifications: { warranty: '2 years', color: 'Blue', weight: 3.61 },
+    isFeatured: false,
+    createdAt: ISODate('2026-09-09T07:23:03.541Z')
+  }
+]
+Atlas atlas-8hk621-shard-0 [primary] aggregateDB> db.aggex.aggregate([
+|     {
+|         $sort: {
+|             price: -1
+|         }
+|     },
+|     {
+|         $limit: 5
+|     }
+| ])
